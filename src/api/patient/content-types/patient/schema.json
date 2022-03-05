@@ -1,0 +1,104 @@
+{
+  "kind": "collectionType",
+  "collectionName": "patients",
+  "info": {
+    "singularName": "patient",
+    "pluralName": "patients",
+    "displayName": "patient",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "email": {
+      "type": "email",
+      "required": true
+    },
+    "password": {
+      "type": "password",
+      "required": true
+    },
+    "profile_pic": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "dob": {
+      "type": "date",
+      "required": true
+    },
+    "phone": {
+      "type": "string",
+      "required": true
+    },
+    "address": {
+      "type": "text",
+      "required": true
+    },
+    "gender": {
+      "type": "string",
+      "required": true
+    },
+    "height": {
+      "type": "decimal",
+      "required": true
+    },
+    "weight": {
+      "type": "decimal",
+      "required": true
+    },
+    "blood_type": {
+      "type": "string",
+      "required": true
+    },
+    "doctors": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::doctor.doctor",
+      "inversedBy": "patients"
+    },
+    "monitors": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::monitor.monitor",
+      "inversedBy": "patients"
+    },
+    "prescriptions": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::prescription.prescription",
+      "mappedBy": "patient"
+    },
+    "diseases": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::disease.disease",
+      "mappedBy": "patient"
+    },
+    "vital_signs": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::vital-sign.vital-sign",
+      "mappedBy": "patient"
+    },
+    "medicines": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::medicine.medicine",
+      "mappedBy": "patient"
+    },
+    "code": {
+      "type": "string",
+      "unique": true
+    }
+  }
+}

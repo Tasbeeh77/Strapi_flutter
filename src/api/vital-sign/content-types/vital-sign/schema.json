@@ -1,0 +1,39 @@
+{
+  "kind": "collectionType",
+  "collectionName": "vital_signs",
+  "info": {
+    "singularName": "vital-sign",
+    "pluralName": "vital-signs",
+    "displayName": "vital_sign",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "temperature": {
+      "type": "string"
+    },
+    "blood_oxygen": {
+      "type": "string"
+    },
+    "heart_rate": {
+      "type": "string"
+    },
+    "time": {
+      "type": "datetime",
+      "required": true,
+      "unique": false
+    },
+    "patient": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::patient.patient",
+      "inversedBy": "vital_signs"
+    },
+    "blood_pressure": {
+      "type": "string"
+    }
+  }
+}
